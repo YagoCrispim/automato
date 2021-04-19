@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# exec permissions, then move this file to /usr/bin/
+
+# gnome-restart to run this file
+DISPLAY=:0 gnome-shell --replace &
