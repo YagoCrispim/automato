@@ -23,7 +23,6 @@ GUI=$(zenity --list --checklist \
 	FALSE "Install NodeJS" "Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. "  \
 	FALSE "Install NPM" "NodeJS Package Manager."  \
 	FALSE "Install PlayOnLinux" "PlayOnLinux is a piece of software which allows you to easily install and use numerous games and apps designed to run with Microsoft® Windows®. "  \
-	FALSE "Install Synaptic" "APT package manager."  \
 	FALSE "Install Ristretto" "Image viewer."  \
 	FALSE "Install Simple screen recorder" "Simple screen recorder."  \
 	FALSE "Install Thunar" "File manager"  \
@@ -31,11 +30,6 @@ GUI=$(zenity --list --checklist \
 	FALSE "Install Timeshift" "Timeshift for Linux is an application that provides functionality similar to the System Restore feature in Windows and the Time Machine tool in Mac OS."  \
 	FALSE "Install VLC" "Media player."  \
 	FALSE "Install Ubuntu restricted extras" "Software package for Ubuntu that allows the user to install essential software which is not included due to legal or copyright reasons."  \
-	FALSE "Run apt autoclean" "Remove obsolete deb packages."  \
-	FALSE "Run apt autoremove" "Used to remove packages that have been installed automatically."  \
-	FALSE "Run apt install -f" "Resolving broken packages."  \
-	FALSE "Run apt update" "Updates local repositories."  \
-	FALSE "Run apt upgrade" "Updates the system."  \
 	FALSE "Minimize on click" "Minimize on click(dash to dock)."  \
 	FALSE "Remove mounted devices icons" "Remove os ícones de dispositivos montados."  \
 	FALSE "Config mouse speed" "Synchronize mouse speed."  \
@@ -44,44 +38,12 @@ GUI=$(zenity --list --checklist \
 # clean the terminal
 clear
 
-if [[ $GUI == *"Run apt update"* ]]
-then
-	echo "-------------------"
-	echo "Running: apt update"
-	echo "-------------------"
-	sudo apt update
-fi
-
-if [[ $GUI == *"Run apt upgrade"* ]]
-then
-	echo "-------------------"
-	echo "Running: apt upgrade"
-	echo "-------------------"
-	sudo apt upgrade -y
-fi
-
-if [[ $GUI == *"Run apt autoclean"* ]]
-then
-	echo "-------------------"
-	echo "Installing: apt autoclean"
-	echo "-------------------"
-	sudo apt autoclean -y
-fi
-
-if [[ $GUI == *"Run apt autoremove"* ]]
-then
-	echo "-------------------"
-	echo "Installing: apt autoremove"
-	echo "-------------------"
-	sudo apt autoremove -y
-fi
-
 if [[ $GUI == *"Install Inkscape"* ]]
 then
 	echo "-------------------"
 	echo "Installing: Inkscape"
 	echo "-------------------"
-	sudo apt install -y inkscape
+	sudo pacman -S --noconfirm inkscape
 fi
 
 if [[ $GUI == *"Install Thunar"* ]]
@@ -89,7 +51,7 @@ then
 	echo "-------------------"
 	echo "Installing: Thunar"
 	echo "-------------------"
-	sudo apt install -y thunar
+	sudo pacman -S --noconfirm thunar
 fi
 
 if [[ $GUI == *"Install Bleachbit"* ]]
@@ -97,7 +59,7 @@ then
 	echo "-------------------"
 	echo "Installing: Bleachbit"
 	echo "-------------------"
-	sudo apt install -y bleachbit
+	sudo pacman -S --noconfirm bleachbit
 fi
 
 if [[ $GUI == *"Install Timeshift"* ]]
@@ -106,7 +68,7 @@ then
 	echo "Installing: Timeshift"
 	echo "-------------------"
 
-sudo apt install -y timeshift
+sudo pacman -S --noconfirm timeshift
 fi
 
 if [[ $GUI == *"Install PlayOnLinux"* ]]
@@ -114,7 +76,7 @@ then
 	echo "-------------------"
 	echo "Installing: PlayOnLinux"
 	echo "-------------------"
-	sudo apt install -y playonlinux
+	sudo pacman -S --noconfirm playonlinux
 fi
 
 if [[ $GUI == *"Install Gnome tweak tool"* ]]
@@ -122,7 +84,7 @@ then
 	echo "-------------------"
 	echo "Installing: Gnome tweak tool"
 	echo "-------------------"
-	sudo apt install -y gnome-tweak-tool
+	sudo pacman -S --noconfirm gnome-tweak-tool
 fi
 
 if [[ $GUI == *"Install VLC"* ]]
@@ -130,7 +92,7 @@ then
 	echo "-------------------"
 	echo "Installing: VLC"
 	echo "-------------------"
-	sudo apt install -y vlc
+	sudo pacman -S --noconfirm vlc
 fi
 
 if [[ $GUI == *"Install Audacity"* ]]
@@ -138,7 +100,7 @@ then
 	echo "-------------------"
 	echo "Installing: Audacity"
 	echo "-------------------"
-	sudo apt install -y audacity
+	sudo pacman -S --noconfirm audacity
 fi
 
 if [[ $GUI == *"Install Ristretto"* ]]
@@ -146,15 +108,7 @@ then
 	echo "-------------------"
 	echo "Installing: Ristretto"
 	echo "-------------------"
-	sudo apt install -y ristretto
-fi
-
-if [[ $GUI == *"Install Synaptic"* ]]
-then
-	echo "-------------------"
-	echo "Installing: Synaptic"
-	echo "-------------------"
-	sudo apt install -y synaptic
+	sudo pacman -S --noconfirm ristretto
 fi
 
 if [[ $GUI == *"Install Chrome Gnome extensions"* ]]
@@ -162,7 +116,7 @@ then
 	echo "-------------------"
 	echo "Installing: Chrome Gnome extensions"
 	echo "-------------------"
-	sudo apt install -y sudo apt-get install chrome-gnome-shell
+	sudo pacman -S --noconfirm sudo apt-get install chrome-gnome-shell
 fi
 
 if [[ $GUI == *"Install Transmission"* ]]
@@ -170,7 +124,7 @@ then
 	echo "-------------------"
 	echo "Installing: Transmission"
 	echo "-------------------"
-	sudo apt install -y transmission
+	sudo pacman -S --noconfirm transmission
 fi
 
 if [[ $GUI == *"Install Mousepad"* ]]
@@ -178,7 +132,7 @@ then
 	echo "-------------------"
 	echo "Installing: Mousepad"
 	echo "-------------------"
-	sudo apt install -y mousepad
+	sudo pacman -S --noconfirm mousepad
 fi
 
 if [[ $GUI == *"Install Menulibre"* ]]
@@ -186,7 +140,7 @@ then
 	echo "-------------------"
 	echo "Installing: Menulibre"
 	echo "-------------------"
-	sudo apt install -y menulibre
+	sudo pacman -S --noconfirm menulibre
 fi
 
 if [[ $GUI == *"Install Dconf-editor"* ]]
@@ -194,7 +148,7 @@ then
 	echo "-------------------"
 	echo "Installing: Dconf-editor"
 	echo "-------------------"
-	sudo apt install -y dconf-editor
+	sudo pacman -S --noconfirm dconf-editor
 fi
 
 if [[ $GUI == *"Install NodeJS"* ]]
@@ -202,7 +156,7 @@ then
 	echo "-------------------"
 	echo "Installing: NodeJS"
 	echo "-------------------"
-	sudo apt install -y nodejs
+	sudo pacman -S --noconfirm nodejs
 fi
 
 if [[ $GUI == *"Install NPM"* ]]
@@ -210,7 +164,7 @@ then
 	echo "-------------------"
 	echo "Installing: NPM"
 	echo "-------------------"
-	sudo apt install -y npm
+	sudo pacman -S --noconfirm npm
 fi
 
 if [[ $GUI == *"Install Ubuntu restricted extras"* ]]
@@ -218,7 +172,7 @@ then
 	echo "-------------------"
 	echo "Installing: Ubuntu restricted extras"
 	echo "-------------------"
-	sudo apt install -y ubuntu-restricted-extras
+	sudo pacman -S --noconfirm ubuntu-restricted-extras
 fi
 
 if [[ $GUI == *"Minimize on click"* ]]
@@ -249,12 +203,7 @@ then
 	echo "-------------------"
 	echo "Installing: Docker"
 	echo "-------------------"
-	sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
-	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" -y
-	sudo apt update
-	apt-cache policy docker-ce
-	sudo apt install docker-ce -y
+	sudo pacman -S docker --noconfirm
 fi
 
 if [[ $GUI == *"Run apt install -f"* ]]
@@ -262,7 +211,7 @@ then
 	echo "-------------------"
 	echo "Running: apt install -f"
 	echo "-------------------"
-	sudo apt install -f -y
+	sudo pacman -S -f --noconfirm
 fi
 
 if [[ $GUI == *"Install Simple screen recorder"* ]]
@@ -270,7 +219,7 @@ then
 	echo "-------------------"
 	echo "Installing: Simple screen recorder"
 	echo "-------------------"
-	sudo apt install simplescreenrecorder -y
+	sudo pacman -S simplescreenrecorder --noconfirm
 fi
 
 Example
@@ -288,5 +237,5 @@ fi
 # 	echo "-------------------"
 # 	echo "Installing: xxxx"
 # 	echo "-------------------"
-# 	sudo apt install xxxx -y
+# 	sudo pacman -S xxxx --noconfirm
 # fi
