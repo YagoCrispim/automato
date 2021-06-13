@@ -1,22 +1,15 @@
-## Automato
-
-### Automate and optimize recurring tasks in Ubuntu 
+## Automato - Automating recurring tasks in Ubuntu
 
 <h1  align="center">
 <img  alt="BASH"  title="#BASH"  src="https://cdn.freebiesupply.com/logos/large/2x/bash-1-logo-png-transparent.png"  width="100%"  />
 </h1>
 
-### Dependencies
--  Zenity
-- rsync
-
-##### Installation
+#### To install dependencies run dependencies.sh
 ```bash
-sudo apt-get update
-sudo apt-get install -y rsync zenity
+./dependencies.sh
 ```
 
-### Execution
+#### Execution
 ```bash
 ./wizard.sh
 ```
