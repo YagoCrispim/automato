@@ -17,6 +17,7 @@ GUI=$(zenity --list --checklist \
 	FALSE "Install Discord" "Your place to talk Whether you're part of a school club, gaming group and etc." \
 	FALSE "Install Docker" "Docker deploys containers at all layers of the hybrid cloud."  \
 	FALSE "Install Docker compose" "Docker Compose is a tool that was developed to help define and share multi-container applications."  \
+	FALSE "Install Gnome Pomodoro" "Pomodoro timer for GNOME."  \
 	FALSE "Install Gnome tweak tool" "GNOME Tweaks tool is a must have utility for any GNOME user. It helps you configure looks and functionality of the desktop."  \
 	FALSE "Install Inkscape" "Inkscape is professional quality vector graphics software which runs on Linux, Mac OS X and Windows desktop computers."  \
 	FALSE "Install Mousepad" "Text editor"  \
@@ -24,7 +25,9 @@ GUI=$(zenity --list --checklist \
 	FALSE "Install NodeJS" "Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. "  \
 	FALSE "Install Numix icons" "Numix icons package. "  \
 	FALSE "Install NPM" "NodeJS Package Manager."  \
+	FALSE "(NPM) Install NPM serve globaly" "NodeJS HTTP server."  \
 	FALSE "Install PlayOnLinux" "PlayOnLinux is a piece of software which allows you to easily install and use numerous games and apps designed to run with Microsoft® Windows®. "  \
+	FALSE "Install Sublime Text" "Code editor."  \
 	FALSE "Install Synaptic" "APT package manager."  \
 	FALSE "Install Ristretto" "Image viewer."  \
 	FALSE "Install Simple screen recorder" "Simple screen recorder."  \
@@ -33,13 +36,7 @@ GUI=$(zenity --list --checklist \
 	FALSE "Install Timeshift" "Timeshift for Linux is an application that provides functionality similar to the System Restore feature in Windows and the Time Machine tool in Mac OS."  \
 	FALSE "Install VLC" "Media player."  \
 	FALSE "Install Ubuntu restricted extras" "Software package for Ubuntu that allows the user to install essential software which is not included due to legal or copyright reasons."  \
-	FALSE "(SNAP) Install VSCode" "Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications."  \
-	FALSE "(SNAP) Install Opera" "Web browser."  \
-	FALSE "(SNAP) Install Sublime Text" "Code editor"  \
 	FALSE "(SNAP) Install Android Studio" "IDE for Android development."  \
-	FALSE "(SNAP) Install Insomnia" "REST client."  \
-	FALSE "(SNAP) Install Whatsie" "WhatsApp client."  \
-	FALSE "(SNAP) Install WPS Office" "Office suite."  \
 	FALSE "Install Yarn" "Package manager for NodeJS."  \
 	FALSE "Run apt autoclean" "Remove obsolete deb packages."  \
 	FALSE "Run apt autoremove" "Used to remove packages that have been installed automatically."  \
@@ -310,28 +307,12 @@ then
  	sudo apt install docker-compose -y
 fi
 
-if [[ $GUI == *"(SNAP) Install VSCode"* ]]
-then
- 	echo "-------------------"
- 	echo "Installing: VSCode"
- 	echo "-------------------"
- 	sudo snap install code --classic
-fi
-
-if [[ $GUI == *"(SNAP) Install Opera"* ]]
-then
- 	echo "-------------------"
- 	echo "Installing: Opera"
- 	echo "-------------------"
- 	sudo snap install opera
-fi
-
-if [[ $GUI == *"(SNAP) Install Sublime Text"* ]]
+if [[ $GUI == *"Install Sublime Text"* ]]
 then
  	echo "-------------------"
  	echo "Installing: Sublime Text"
  	echo "-------------------"
- 	sudo snap install sublime-text --classic
+ 	sudo ./sublime-text-install.sh
 fi
 
 if [[ $GUI == *"(SNAP) Install Android Studio"* ]]
@@ -340,30 +321,6 @@ then
  	echo "Installing: Android Studio"
  	echo "-------------------"
  	sudo snap install android-studio --classic
-fi
-
-if [[ $GUI == *"(SNAP) Install Insomnia"* ]]
-then
- 	echo "-------------------"
- 	echo "Installing: Insomnia"
- 	echo "-------------------"
- 	sudo snap install insomnia
-fi
-
-if [[ $GUI == *"(SNAP) Install WPS Office"* ]]
-then
- 	echo "-------------------"
- 	echo "Installing: WPS Office"
- 	echo "-------------------"
- 	sudo snap install wps-2019-snap
-fi
-
-if [[ $GUI == *"(SNAP) Install Whatsie"* ]]
-then
- 	echo "-------------------"
- 	echo "Installing: Whatsie"
- 	echo "-------------------"
- 	sudo snap install whatsie
 fi
 
 if [[ $GUI == *"Install Yarn"* ]]
@@ -380,6 +337,22 @@ then
 	echo "Running: apt install -f"
 	echo "-------------------"
 	sudo apt install -f -y
+fi
+
+if [[ $GUI == *"Install Gnome Pomodoro"* ]]
+then
+	echo "-------------------"
+	echo "Running: Install Gnome Pomodoro"
+	echo "-------------------"
+	sudo apt-get install gnome-shell-pomodoro -y
+fi
+
+if [[ $GUI == *"(NPM) Install NPM serve globaly"* ]]
+then
+	echo "-------------------"
+	echo "Running: (NPM) Install NPM serve globaly"
+	echo "-------------------"
+	sudo npm i -g serve
 fi
 
 
