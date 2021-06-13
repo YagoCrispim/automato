@@ -12,6 +12,8 @@ GUI=$(zenity --list --checklist \
 	FALSE "Run package wizard" "List with software to install and functions to run."  \
 	FALSE "GNOME restart" "Set Alt + CTRL + 1 to restart GNOME if it freezes."  \
 	FALSE "Folders sync" "Sync two different folders."  \
+	FALSE "Install Python dev environment" "Python dev environment."  \
+	FALSE "Install VueJS dev environment" "Python dev environment."  \
 	--separator=', ');
 
 clear
@@ -40,5 +42,23 @@ then
 	echo "Running: Sync folders"
 	echo "-------------------"
 	./scripts/sync.sh
+
+fi
+
+if [[ $GUI == *"Install Python dev environment"* ]]
+then
+	echo "-------------------"
+	echo "Running: Install Python dev environment"
+	echo "-------------------"
+	./scripts/python-dev-env.sh
+
+fi
+
+if [[ $GUI == *"Install VueJS dev environment"* ]]
+then
+	echo "-------------------"
+	echo "Running: Install VueJS dev environment"
+	echo "-------------------"
+	./scripts/vue-env.sh
 
 fi
