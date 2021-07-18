@@ -10,6 +10,7 @@ GUI=$(zenity --list --checklist \
 	--column=Actions \
 	--column=Description \
 	FALSE "Disable Desktop icons (GNOME)" "Hide desktop icons."  \
+	FALSE "Install Android SDK" "Android SDK."  \
 	FALSE "Install Audacity" "Free, open source, cross-platform audio software."  \
 	FALSE "Install Bleachbit" "BleachBit is a free and open-source disk space cleaner, privacy manager, and computer system optimizer."  \
 	FALSE "Install Chrome Gnome extensions" "Enable GNOME extension support via Chrome ."  \
@@ -37,6 +38,7 @@ GUI=$(zenity --list --checklist \
 	FALSE "Install VLC" "Media player."  \
 	FALSE "Install Ubuntu restricted extras" "Software package for Ubuntu that allows the user to install essential software which is not included due to legal or copyright reasons."  \
 	FALSE "(SNAP) Install Android Studio" "IDE for Android development."  \
+	FALSE "(SNAP) Install DBeaver" "DBeaver é um aplicativo de software cliente SQL e uma ferramenta de administração de banco de dados."  \
 	FALSE "Install Yarn" "Package manager for NodeJS."  \
 	FALSE "Run apt autoclean" "Remove obsolete deb packages."  \
 	FALSE "Run apt autoremove" "Used to remove packages that have been installed automatically."  \
@@ -355,6 +357,21 @@ then
 	sudo npm i -g serve
 fi
 
+if [[ $GUI == *"(SNAP) Install DBeaver"* ]]
+then
+ 	echo "-------------------"
+ 	echo "Installing: Dbeaver"
+ 	echo "-------------------"
+ 	sudo snap install dbeaver-ce -y
+fi
+
+if [[ $GUI == *"Install Android SDK"* ]]
+then
+	echo "-------------------"
+	echo "Installing: Install Android SDK"
+	echo "-------------------"
+	sudo apt install sudo apt update && sudo apt install android-sdk -y
+fi
 
 #if [[ $GUI == *"Install software xxxx"* ]]
 #then
