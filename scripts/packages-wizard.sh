@@ -10,44 +10,43 @@ GUI=$(zenity --list --checklist \
 	--column=Actions \
 	--column=Description \
 	FALSE "Disable Desktop icons (GNOME)" "Hide desktop icons."  \
-	FALSE "Install Android SDK" "Android SDK."  \
+	FALSE "Enable snapd on Linux Mint" "Enable snapd on Linux Mint."  \
 	FALSE "Install Audacity" "Free, open source, cross-platform audio software."  \
 	FALSE "Install Bleachbit" "BleachBit is a free and open-source disk space cleaner, privacy manager, and computer system optimizer."  \
 	FALSE "Install Chrome Gnome extensions" "Enable GNOME extension support via Chrome ."  \
-	FALSE "Install Dconf-editor" "Dconf Editor is a viewer and editor of applications internal settings."  \
 	FALSE "Install Discord" "Your place to talk Whether you're part of a school club, gaming group and etc." \
 	FALSE "Install Docker" "Docker deploys containers at all layers of the hybrid cloud."  \
 	FALSE "Install Docker compose" "Docker Compose is a tool that was developed to help define and share multi-container applications."  \
-	FALSE "Install Gnome Pomodoro" "Pomodoro timer for GNOME."  \
 	FALSE "Install Gnome tweak tool" "GNOME Tweaks tool is a must have utility for any GNOME user. It helps you configure looks and functionality of the desktop."  \
+	FALSE "Install GParted" "GNOME application for disk management."  \
 	FALSE "Install Inkscape" "Inkscape is professional quality vector graphics software which runs on Linux, Mac OS X and Windows desktop computers."  \
-	FALSE "Install Mousepad" "Text editor"  \
+	FALSE "Install KVM" "Kernel-based Virtual Machine."  \
 	FALSE "Install Menulibre" "MenuLibre is an advanced FreeDesktop.org compliant menu editor."  \
-	FALSE "Install NodeJS" "Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. "  \
+	FALSE "Install NodeJS LTS" "Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. "  \
 	FALSE "Install Numix icons" "Numix icons package. "  \
 	FALSE "Install NPM" "NodeJS Package Manager."  \
-	FALSE "(NPM) Install NPM serve globaly" "NodeJS HTTP server."  \
 	FALSE "Install PlayOnLinux" "PlayOnLinux is a piece of software which allows you to easily install and use numerous games and apps designed to run with Microsoft® Windows®. "  \
-	FALSE "Install Sublime Text" "Code editor."  \
+	FALSE "Install Python dev environment" "Python dev environment."  \
 	FALSE "Install Synaptic" "APT package manager."  \
 	FALSE "Install Ristretto" "Image viewer."  \
 	FALSE "Install Simple screen recorder" "Simple screen recorder."  \
-	FALSE "Install Thunar" "File manager"  \
 	FALSE "Install Transmission" "Torrent client."  \
 	FALSE "Install Timeshift" "Timeshift for Linux is an application that provides functionality similar to the System Restore feature in Windows and the Time Machine tool in Mac OS."  \
 	FALSE "Install VLC" "Media player."  \
 	FALSE "Install Ubuntu restricted extras" "Software package for Ubuntu that allows the user to install essential software which is not included due to legal or copyright reasons."  \
-	FALSE "(SNAP) Install Android Studio" "IDE for Android development."  \
-	FALSE "(SNAP) Install DBeaver" "DBeaver é um aplicativo de software cliente SQL e uma ferramenta de administração de banco de dados."  \
 	FALSE "Install Yarn" "Package manager for NodeJS."  \
+	FALSE "Remove mounted devices icons" "Remove mounted devices icon."  \
 	FALSE "Run apt autoclean" "Remove obsolete deb packages."  \
 	FALSE "Run apt autoremove" "Used to remove packages that have been installed automatically."  \
 	FALSE "Run apt install -f" "Resolving broken packages."  \
 	FALSE "Run apt update" "Updates local repositories."  \
 	FALSE "Run apt upgrade" "Updates the system."  \
-	FALSE "Minimize on click" "Minimize on click(dash to dock)."  \
-	FALSE "Remove mounted devices icons" "Remove mounted devices icon."  \
-	FALSE "Config mouse speed" "Synchronize mouse speed."  \
+	FALSE "(NPM) Install NPM serve globaly" "NodeJS HTTP server."  \
+	FALSE "(NPM) Install VueJS dev environment" "VueJS dev environment."  \
+	FALSE "(SNAP) Install Android Studio" "IDE for Android development."  \
+	FALSE "(SNAP) Install Eclipse IDE" "IDE for C/C++, PHP, Javascript, Python, Rust, Java and more."  \
+	FALSE "(SNAP) Install DBeaver" "DBeaver é um aplicativo de software cliente SQL e uma ferramenta de administração de banco de dados."  \
+	FALSE "(SNAP) Install Sublime Text" "Code editor."  \
 	--separator=', ');
 
 clear
@@ -90,14 +89,6 @@ then
 	echo "Installing: Inkscape"
 	echo "-------------------"
 	sudo apt install -y inkscape
-fi
-
-if [[ $GUI == *"Install Thunar"* ]]
-then
-	echo "-------------------"
-	echo "Installing: Thunar"
-	echo "-------------------"
-	sudo apt install -y thunar
 fi
 
 if [[ $GUI == *"Install Bleachbit"* ]]
@@ -181,14 +172,6 @@ then
 	sudo apt install -y transmission
 fi
 
-if [[ $GUI == *"Install Mousepad"* ]]
-then
-	echo "-------------------"
-	echo "Installing: Mousepad"
-	echo "-------------------"
-	sudo apt install -y mousepad
-fi
-
 if [[ $GUI == *"Install Menulibre"* ]]
 then
 	echo "-------------------"
@@ -197,20 +180,14 @@ then
 	sudo apt install -y menulibre
 fi
 
-if [[ $GUI == *"Install Dconf-editor"* ]]
-then
-	echo "-------------------"
-	echo "Installing: Dconf-editor"
-	echo "-------------------"
-	sudo apt install -y dconf-editor
-fi
-
-if [[ $GUI == *"Install NodeJS"* ]]
+if [[ $GUI == *"Install NodeJS LTS"* ]]
 then
 	echo "-------------------"
 	echo "Installing: NodeJS"
 	echo "-------------------"
 	sudo apt install -y nodejs
+	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+	nvm install lts/erbium	
 fi
 
 if [[ $GUI == *"Install NPM"* ]]
@@ -227,14 +204,6 @@ then
 	echo "Installing: Ubuntu restricted extras"
 	echo "-------------------"
 	sudo apt install -y ubuntu-restricted-extras
-fi
-
-if [[ $GUI == *"Minimize on click"* ]]
-then
-	echo "-------------------"
-	echo "Running: Minimize on click"
-	echo "-------------------"
-	gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-overview'
 fi
 
 if [[ $GUI == *"Disable Desktop icons"* ]]
@@ -273,24 +242,6 @@ then
 	sudo apt install simplescreenrecorder -y
 fi
 
-if [[ $GUI == *"Config mouse speed"* ]]
-then
-	echo "-------------------"
-	echo "Configuring mouse speed"
-	echo "-------------------"
-	sudo xset m 1 1
-fi
-
-if [[ $GUI == *"Install Numix icons"* ]]
-then
-	echo "-------------------"
-	echo "Installing: Numix icons"
- 	echo "-------------------"
- 	sudo add-apt-repository ppa:numix/ppa -y
- 	sudo apt update -y
- 	sudo apt-get install numix-gtk-theme numix-icon-theme-circle numix-icon-theme-square -y
-fi
-
 if [[ $GUI == *"Install Numix icons"* ]]
 then
 	echo "-------------------"
@@ -309,12 +260,12 @@ then
  	sudo apt install docker-compose -y
 fi
 
-if [[ $GUI == *"Install Sublime Text"* ]]
+if [[ $GUI == *"(SNAP) Install Sublime Text"* ]]
 then
  	echo "-------------------"
  	echo "Installing: Sublime Text"
  	echo "-------------------"
- 	sudo ./sublime-text-install.sh
+ 	sudo snap install sublime-text --classic
 fi
 
 if [[ $GUI == *"(SNAP) Install Android Studio"* ]]
@@ -330,7 +281,7 @@ then
 	echo "-------------------"
 	echo "Installing: Yarn"
 	echo "-------------------"
-	curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add && echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list && sudo apt update && sudo apt install yarn -y --no-install-recommends
+	sudo npm install --global yarn
 fi
 
 if [[ $GUI == *"Run apt install -f"* ]]
@@ -339,14 +290,6 @@ then
 	echo "Running: apt install -f"
 	echo "-------------------"
 	sudo apt install -f -y
-fi
-
-if [[ $GUI == *"Install Gnome Pomodoro"* ]]
-then
-	echo "-------------------"
-	echo "Running: Install Gnome Pomodoro"
-	echo "-------------------"
-	sudo apt-get install gnome-shell-pomodoro -y
 fi
 
 if [[ $GUI == *"(NPM) Install NPM serve globaly"* ]]
@@ -365,18 +308,56 @@ then
  	sudo snap install dbeaver-ce -y
 fi
 
-if [[ $GUI == *"Install Android SDK"* ]]
+
+if [[ $GUI == *"Install Python dev environment"* ]]
 then
 	echo "-------------------"
-	echo "Installing: Install Android SDK"
+	echo "Running: Install Python dev environment"
 	echo "-------------------"
-	sudo apt install sudo apt update && sudo apt install android-sdk -y
+	sudo ./python-dev-env.sh
+
 fi
 
-#if [[ $GUI == *"Install software xxxx"* ]]
-#then
-# 	echo "-------------------"
-# 	echo "Installing: xxxx"
-# 	echo "-------------------"
-# 	sudo apt install xxxx -y
-#fi
+if [[ $GUI == *"Install VueJS dev environment"* ]]
+then
+	echo "-------------------"
+	echo "Running: Install VueJS dev environment"
+	echo "-------------------"
+	sudo ./vue-env.sh
+fi
+
+if [[ $GUI == *"(SNAP) Install Eclipse IDE"* ]]
+then
+	echo "-------------------"
+	echo "Installing: Eclipse IDE"
+	echo "-------------------"
+	sudo snap install eclipse --classic
+fi
+
+if [[ $GUI == *"Install GParted"* ]]
+then
+	echo "-------------------"
+	echo "Installing: GParted"
+	echo "-------------------"
+	sudo apt install gparted -y
+fi
+
+if [[ $GUI == *"Install KVM"* ]]
+then
+	echo "-------------------"
+	echo "Installing: KVM"
+	echo "-------------------"
+	sudo apt install qemu-kvm -y
+	sudo adduser $USER kvm
+fi
+
+if [[ $GUI == *"Enable snapd on Linux Mint"* ]]
+then
+	echo "-------------------"
+	echo "Running: Enable snapd on Linux Mint"
+	echo "-------------------"
+	sudo rm /etc/apt/preferences.d/nosnap.pref
+	sudo apt update 
+	sudo apt install snapd
+	echo "Snap enabled"
+fi
