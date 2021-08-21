@@ -7,7 +7,7 @@
 # Create a shortcut to run this script.
 
 # pt-Br
-# Reseta o GNOME shel caso ele congele ou não responda.
+# Reseta o GNOME shell caso ele congele ou não responda.
 # Crie um atalho para executar este script.
 
 # -----------
