@@ -1,15 +1,15 @@
-## Automato - Automating recurring tasks in Ubuntu
+## Automato - Automating recurring tasks in Ubuntu / Mint
 
-<h1  align="center">
-<img  alt="BASH"  title="#BASH"  src="https://cdn.freebiesupply.com/logos/large/2x/bash-1-logo-png-transparent.png"  width="70%"  />
+<h1 align="center">
+  <img  alt="BASH"  title="#BASH"  src="https://cdn.freebiesupply.com/logos/large/2x/bash-1-logo-png-transparent.png"  width="50%"  />
 </h1>
 
-#### To install dependencies run dependencies.sh
+#### Install dependencies run:
 ```bash
 ./dependencies.sh
 ```
 
-#### Execution
+#### Run scripts:
 ```bash
 ./wizard.sh
 ```

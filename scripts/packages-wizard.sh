@@ -19,6 +19,7 @@ GUI=$(zenity --list --checklist \
 	FALSE "Install Docker compose" "Docker Compose is a tool that was developed to help define and share multi-container applications."  \
 	FALSE "Install Gnome tweak tool" "GNOME Tweaks tool is a must have utility for any GNOME user. It helps you configure looks and functionality of the desktop."  \
 	FALSE "Install GParted" "GNOME application for disk management."  \
+	FALSE "Install GOlang" "GO programming language."  \
 	FALSE "Install Inkscape" "Inkscape is professional quality vector graphics software which runs on Linux, Mac OS X and Windows desktop computers."  \
 	FALSE "Install KVM" "Kernel-based Virtual Machine."  \
 	FALSE "Install Menulibre" "MenuLibre is an advanced FreeDesktop.org compliant menu editor."  \
@@ -359,5 +360,14 @@ then
 	sudo rm /etc/apt/preferences.d/nosnap.pref
 	sudo apt update 
 	sudo apt install snapd
+	echo "Snap enabled"
+fi
+
+if [[ $GUI == *"Enable snapd on Linux Mint"* ]]
+then
+	echo "-------------------"
+	echo "Installinh: GO language"
+	echo "-------------------"
+	sudo apt install golang -y
 	echo "Snap enabled"
 fi
