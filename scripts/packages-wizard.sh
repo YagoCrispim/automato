@@ -19,6 +19,7 @@ GUI=$(zenity --list --checklist \
 	FALSE "Install Docker compose" "Docker Compose is a tool that was developed to help define and share multi-container applications."  \
 	FALSE "Install Gnome tweak tool" "GNOME Tweaks tool is a must have utility for any GNOME user. It helps you configure looks and functionality of the desktop."  \
 	FALSE "Install GParted" "GNOME application for disk management."  \
+	FALSE "Install GIT" "Code version manager."  \
 	FALSE "Install GOlang" "GO programming language."  \
 	FALSE "Install Inkscape" "Inkscape is professional quality vector graphics software which runs on Linux, Mac OS X and Windows desktop computers."  \
 	FALSE "Install KVM" "Kernel-based Virtual Machine."  \
@@ -46,6 +47,7 @@ GUI=$(zenity --list --checklist \
 	FALSE "(NPM) Install VueJS dev environment" "VueJS dev environment."  \
 	FALSE "(SNAP) Install Android Studio" "IDE for Android development."  \
 	FALSE "(SNAP) Install Eclipse IDE" "IDE for C/C++, PHP, Javascript, Python, Rust, Java and more."  \
+	FALSE "(SNAP) Install Google Chat Electron" "Google Chat Electron."  \
 	FALSE "(SNAP) Install DBeaver" "DBeaver é um aplicativo de software cliente SQL e uma ferramenta de administração de banco de dados."  \
 	FALSE "(SNAP) Install Sublime Text" "Code editor."  \
 	--separator=', ');
@@ -371,3 +373,19 @@ then
 	sudo apt install golang -y
 	echo "Snap enabled"
 fi
+
+if [[ $GUI == *"Install GIT"* ]]
+then
+	echo "-------------------"
+	echo "Installinh: GIT"
+	echo "-------------------"
+	sudo apt install git -y
+fi
+
+if [[ $GUI == *"(SNAP) Install Google Chat Electron"* ]]
+	echo "-------------------"
+  echo "Installinh: Google Chat(Electron)"
+	echo "-------------------"
+	sudo snap install google-chat-electron -y
+fi
+
