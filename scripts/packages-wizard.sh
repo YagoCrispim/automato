@@ -383,6 +383,7 @@ then
 fi
 
 if [[ $GUI == *"(SNAP) Install Google Chat Electron"* ]]
+then
 	echo "-------------------"
   echo "Installinh: Google Chat(Electron)"
 	echo "-------------------"
