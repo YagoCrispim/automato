@@ -9,6 +9,7 @@ GUI=$(zenity --list --checklist \
 	--column=Checkbox \
 	--column=Actions \
 	--column=Description \
+	FALSE "Add user to Docker group" "Run Docker without sudo."  \
 	FALSE "Install Audacity" "Free, open source, cross-platform audio software."  \
 	FALSE "Install Bleachbit" "BleachBit is a free and open-source disk space cleaner, privacy manager, and computer system optimizer."  \
 	FALSE "Install Discord" "Your place to talk Whether you're part of a school club, gaming group and etc." \
@@ -19,7 +20,10 @@ GUI=$(zenity --list --checklist \
 	FALSE "Install Inkscape" "Inkscape is professional quality vector graphics software which runs on Linux, Mac OS X and Windows desktop computers."  \
 	FALSE "Install KVM" "Kernel-based Virtual Machine."  \
 	FALSE "Install Numix icons" "Numix icons package. "  \
+	FALSE "Install Neovim (unstable)" "VIM based text editor."  \
 	FALSE "Install NPM" "NodeJS Package Manager."  \
+	FALSE "Install ZSH" "ZSH terminal (base for OhMyZSH)."  \
+	FALSE "Install Plank" "Plank dock"  \
 	FALSE "Install PlayOnLinux" "PlayOnLinux is a piece of software which allows you to easily install and use numerous games and apps designed to run with Microsoft® Windows®. "  \
 	FALSE "Install Synaptic" "APT package manager."  \
 	FALSE "Install Simple screen recorder" "Simple screen recorder."  \
@@ -81,14 +85,6 @@ then
 	echo "Installing: Bleachbit"
 	echo "-------------------"
 	sudo apt install -y bleachbit
-fi
-
-if [[ $GUI == *"Install PlayOnLinux"* ]]
-then
-	echo "-------------------"
-	echo "Installing: PlayOnLinux"
-	echo "-------------------"
-	sudo apt install -y playonlinux
 fi
 
 if [[ $GUI == *"Install VLC"* ]]
@@ -213,7 +209,49 @@ fi
 if [[ $GUI == *"Install GIT"* ]]
 then
 	echo "-------------------"
-	echo "Installinh: GIT"
+	echo "Installing: GIT"
 	echo "-------------------"
 	sudo apt install git -y
+fi
+
+if [[ $GUI == *"Add user to Docker group"* ]]
+then
+	echo "-------------------"
+	echo "Running: Add user to Docker group"
+	echo "-------------------"
+	sudo usermod -aG docker $USER && sudo gpasswd -a $USER docker
+fi
+
+if [[ $GUI == *"Install Neovim (unstable)"* ]]
+then
+	echo "-------------------"
+	echo "Installing: Neovim"
+	echo "-------------------"
+	sudo add-apt-repository -y ppa:neovim-ppa/unstable
+	sudo apt update
+	sudo apt install -y neovim
+fi
+
+if [[ $GUI == *"Install ZSH"* ]]
+then
+	echo "-------------------"
+	echo "Installing: ZSH"
+	echo "-------------------"
+	sudo apt install -y zsh
+fi
+
+if [[ $GUI == *"Install PlayOnLinux"* ]]
+then
+	echo "-------------------"
+	echo "Installing: PlayOnLinux"
+	echo "-------------------"
+	sudo apt install -y playonlinux
+fi
+
+if [[ $GUI == *"Install Plank"* ]]
+then
+	echo "-------------------"
+	echo "Installing: Plank"
+	echo "-------------------"
+	sudo apt install -y plank
 fi
