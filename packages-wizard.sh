@@ -9,33 +9,32 @@ GUI=$(zenity --list --checklist \
 	--column=Checkbox \
 	--column=Actions \
 	--column=Description \
-	FALSE "Add user to Docker group" "Run Docker without sudo."  \
-	FALSE "Install Audacity" "Free, open source, cross-platform audio software."  \
-	FALSE "Install Bleachbit" "BleachBit is a free and open-source disk space cleaner, privacy manager, and computer system optimizer."  \
-	FALSE "Install Discord" "Your place to talk Whether you're part of a school club, gaming group and etc." \
-	FALSE "Install Docker" "Docker deploys containers at all layers of the hybrid cloud."  \
-	FALSE "Install Docker compose" "Docker Compose is a tool that was developed to help define and share multi-container applications."  \
-	FALSE "Install GParted" "GNOME application for disk management."  \
-	FALSE "Install GIT" "Code version manager."  \
-	FALSE "Install Inkscape" "Inkscape is professional quality vector graphics software which runs on Linux, Mac OS X and Windows desktop computers."  \
+	TRUE "Add user to Docker group" "Run Docker without sudo."  \
+	TRUE "Install Audacity" "Free, open source, cross-platform audio software."  \
+	TRUE "Install Bleachbit" "BleachBit is a free and open-source disk space cleaner, privacy manager, and computer system optimizer."  \
+	TRUE "Install Docker" "Docker deploys containers at all layers of the hybrid cloud."  \
+	TRUE "Install Docker compose" "Docker Compose is a tool that was developed to help define and share multi-container applications."  \
+	TRUE "Install GParted" "GNOME application for disk management."  \
+	TRUE "Install GIT" "Code version manager."  \
+	TRUE "Install Inkscape" "Inkscape is professional quality vector graphics software which runs on Linux, Mac OS X and Windows desktop computers."  \
 	FALSE "Install KVM" "Kernel-based Virtual Machine."  \
-	FALSE "Install Numix icons" "Numix icons package. "  \
-	FALSE "Install Neovim (unstable)" "VIM based text editor."  \
-	FALSE "Install NPM" "NodeJS Package Manager."  \
-	FALSE "Install ZSH" "ZSH terminal (base for OhMyZSH)."  \
-	FALSE "Install Plank" "Plank dock"  \
-	FALSE "Install PlayOnLinux" "PlayOnLinux is a piece of software which allows you to easily install and use numerous games and apps designed to run with Microsoft® Windows®. "  \
-	FALSE "Install Synaptic" "APT package manager."  \
-	FALSE "Install Simple screen recorder" "Simple screen recorder."  \
-	FALSE "Install Transmission" "Torrent client."  \
-	FALSE "Install VLC" "Media player."  \
-	FALSE "Install Ubuntu restricted extras" "Software package for Ubuntu that allows the user to install essential software which is not included due to legal or copyright reasons."  \
-	FALSE "Install Yarn" "Package manager for NodeJS."  \
-	FALSE "Run apt autoclean" "Remove obsolete deb packages."  \
-	FALSE "Run apt autoremove" "Used to remove packages that have been installed automatically."  \
-	FALSE "Run apt install -f" "Resolving broken packages."  \
-	FALSE "Run apt update" "Updates local repositories."  \
-	FALSE "Run apt upgrade" "Updates the system."  \
+	TRUE "Install Numix icons" "Numix icons package. "  \
+	TRUE "Install Neovim (unstable)" "VIM based text editor."  \
+	TRUE "Install NPM" "NodeJS Package Manager."  \
+	TRUE "Install ZSH" "ZSH terminal (base for OhMyZSH)."  \
+	TRUE "Install Plank" "Plank dock"  \
+	TRUE "Install PlayOnLinux" "PlayOnLinux is a piece of software which allows you to easily install and use numerous games and apps designed to run with Microsoft® Windows®. "  \
+	TRUE "Install Synaptic" "APT package manager."  \
+	TRUE "Install Simple screen recorder" "Simple screen recorder."  \
+	TRUE "Install Transmission" "Torrent client."  \
+	TRUE "Install VLC" "Media player."  \
+	TRUE "Install Ubuntu restricted extras" "Software package for Ubuntu that allows the user to install essential software which is not included due to legal or copyright reasons."  \
+	TRUE "Install Yarn" "Package manager for NodeJS."  \
+	TRUE "Run apt autoclean" "Remove obsolete deb packages."  \
+	TRUE "Run apt autoremove" "Used to remove packages that have been installed automatically."  \
+	TRUE "Run apt install -f" "Resolving broken packages."  \
+	TRUE "Run apt update" "Updates local repositories."  \
+	TRUE "Run apt upgrade" "Updates the system."  \
 	--separator=', ');
 clear
 
@@ -172,6 +171,7 @@ then
  	echo "Installing: Docker compose"
  	echo "-------------------"
  	sudo apt install docker-compose -y
+fi
 
 if [[ $GUI == *"Install Yarn"* ]]
 then
